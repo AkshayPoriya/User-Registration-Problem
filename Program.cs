@@ -91,10 +91,13 @@ namespace _08_UserRegistrationProblem
             }
             return false;
         }
-
+        
         static bool isValidPassword(string password)
         {
-            string pattern = @"^\w{8,}$";
+            // ?= is used for assertion, we want minimum one Capital letter and one small letter
+            // .*[A-Z] means there must be one Capital letter in front of which there can be any number of characters
+            // . stand for any character and * stand for 0 or more occurence
+            string pattern = @"^(?=.*[A-Z])(?=.*[a-b])[a-zA-Z0-9]{8,20}$";
             Regex regex = new Regex(pattern);
             if (regex.IsMatch(password))
             {
