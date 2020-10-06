@@ -11,7 +11,7 @@ namespace _08_UserRegistrationProblem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("1. Validate First Name \n2. Validate Last Name\n3. Validate Email \n4. Validate Mobile Number \n5. Exit");
+                Console.WriteLine("1. Validate First Name \n2. Validate Last Name\n3. Validate Email \n4. Validate Mobile Number \n5. Validate Password \n6. Exit");
                 string option = Console.ReadLine();
                 switch (option)
                 {
@@ -34,6 +34,11 @@ namespace _08_UserRegistrationProblem
                         Console.WriteLine("Enter Mobile Number");
                         string mobileNumber = Console.ReadLine();
                         Console.WriteLine("{0}", isValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
+                        break;
+                    case "5":
+                        Console.WriteLine("Enter Password");
+                        string password = Console.ReadLine();
+                        Console.WriteLine("{0}", isValidPassword(password) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     default:
                         flag = false; // To break loop
@@ -81,6 +86,17 @@ namespace _08_UserRegistrationProblem
             string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
             Regex regex = new Regex(pattern);
             if (regex.IsMatch(mobileNumber))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        static bool isValidPassword(string password)
+        {
+            string pattern = @"^\w{8,}$";
+            Regex regex = new Regex(pattern);
+            if (regex.IsMatch(password))
             {
                 return true;
             }
