@@ -78,7 +78,7 @@ namespace _08_UserRegistrationProblem
 
         static bool isValidMobileNumber(string mobileNumber)
         {
-            string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; //Pattern for Capital letter followed by small letters, min length 3
+            string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
             Regex regex = new Regex(pattern);
             if (regex.IsMatch(mobileNumber))
             {
