@@ -18,22 +18,22 @@ namespace _08_UserRegistrationProblem
                     case "1":
                         Console.WriteLine("Enter First Name");
                         string firstName = Console.ReadLine();
-                        Console.WriteLine("{0}",isValidFirstName(firstName)?"Valid":"Invalid"); // Ternary operator
+                        Console.WriteLine("{0}",IsValidFirstName(firstName)?"Valid":"Invalid"); // Ternary operator
                         break;
                     case "2":
                         Console.WriteLine("Enter Last Name");
                         string lastName = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidLastName(lastName) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidLastName(lastName) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     case "3":
                         Console.WriteLine("Enter Email");
                         string email = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     case "4":
                         Console.WriteLine("Enter Mobile Number");
                         string mobileNumber = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     default:
                         flag = false; // To break loop
@@ -43,7 +43,7 @@ namespace _08_UserRegistrationProblem
             }
         }
 
-        static bool isValidFirstName(string firstName)
+        static bool IsValidFirstName(string firstName)
         {
             string pattern = @"^[A-Z][a-z][a-z]+$"; //Pattern for Capital letter followed by small letters, min length 3
             Regex regex = new Regex(pattern);
@@ -54,7 +54,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
 
-        static bool isValidLastName(string lastName)
+        static bool IsValidLastName(string lastName)
         {
             string pattern = @"^[A-Z][a-z][a-z]+$"; //Pattern for Capital letter followed by small letters, min length 3
             Regex regex = new Regex(pattern);
@@ -65,7 +65,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
 
-        static bool isValidEmail(string email)
+        static bool IsValidEmail(string email)
         {
             string pattern = @"^[a-zA-Z0-9]+[.A-Za-z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+[.a-zA-Z]*$"; //Pattern for Capital letter followed by small letters, min length 3
             Regex regex = new Regex(pattern);
@@ -76,7 +76,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
 
-        static bool isValidMobileNumber(string mobileNumber)
+        static bool IsValidMobileNumber(string mobileNumber)
         {
             string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
             Regex regex = new Regex(pattern);
