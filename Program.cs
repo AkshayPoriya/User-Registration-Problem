@@ -33,12 +33,12 @@ namespace _08_UserRegistrationProblem
                     case "4":
                         Console.WriteLine("Enter Mobile Number");
                         string mobileNumber = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     case "5":
                         Console.WriteLine("Enter Password");
                         string password = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidPassword(password) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidPassword(password) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     default:
                         flag = false; // To break loop
@@ -81,7 +81,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
 
-        static bool isValidMobileNumber(string mobileNumber)
+        static bool IsValidMobileNumber(string mobileNumber)
         {
             string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
             Regex regex = new Regex(pattern);
@@ -92,7 +92,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
         
-        static bool isValidPassword(string password)
+        static bool IsValidPassword(string password)
         {
             // ?= is used for assertion, we want minimum one Capital letter and one small letter
             // .*[A-Z] means there must be one Capital letter in front of which there can be any number of characters
