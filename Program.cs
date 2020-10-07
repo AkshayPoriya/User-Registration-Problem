@@ -28,7 +28,7 @@ namespace _08_UserRegistrationProblem
                     case "3":
                         Console.WriteLine("Enter Email");
                         string email = Console.ReadLine();
-                        Console.WriteLine("{0}", isValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     case "4":
                         Console.WriteLine("Enter Mobile Number");
@@ -70,7 +70,7 @@ namespace _08_UserRegistrationProblem
             return false;
         }
 
-        static bool isValidEmail(string email)
+        static bool IsValidEmail(string email)
         {
             string pattern = @"^[a-zA-Z0-9]+[.A-Za-z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+[.a-zA-Z]*$"; //Pattern for Capital letter followed by small letters, min length 3
             Regex regex = new Regex(pattern);
