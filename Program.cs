@@ -18,12 +18,12 @@ namespace _08_UserRegistrationProblem
                     case "1":
                         Console.WriteLine("Enter First Name");
                         string firstName = Console.ReadLine();
-                        Console.WriteLine("{0}",IsValidFirstName(firstName)?"Valid":"Invalid"); // Ternary operator
+                        Console.WriteLine("{0}",IsValidName(firstName)?"Valid":"Invalid"); // Ternary operator
                         break;
                     case "2":
                         Console.WriteLine("Enter Last Name");
                         string lastName = Console.ReadLine();
-                        Console.WriteLine("{0}", IsValidLastName(lastName) ? "Valid" : "Invalid"); // Ternary operator
+                        Console.WriteLine("{0}", IsValidName(lastName) ? "Valid" : "Invalid"); // Ternary operator
                         break;
                     case "3":
                         Console.WriteLine("Enter Email");
@@ -48,22 +48,11 @@ namespace _08_UserRegistrationProblem
             }
         }
 
-        static bool IsValidFirstName(string firstName)
+        static bool IsValidName(string firstName)
         {
-            string pattern = @"^[A-Z][a-z][a-z]+$"; //Pattern for Capital letter followed by small letters, min length 3
-            Regex regex = new Regex(pattern);
+            string namePattern = @"^[A-Z][a-z][a-z]+$"; //Pattern for Capital letter followed by small letters, min length 3
+            Regex regex = new Regex(namePattern);
             if (regex.IsMatch(firstName))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        static bool IsValidLastName(string lastName)
-        {
-            string pattern = @"^[A-Z][a-z][a-z]+$"; //Pattern for Capital letter followed by small letters, min length 3
-            Regex regex = new Regex(pattern);
-            if (regex.IsMatch(lastName))
             {
                 return true;
             }
@@ -72,8 +61,8 @@ namespace _08_UserRegistrationProblem
 
         static bool IsValidEmail(string email)
         {
-            string pattern = @"^[a-zA-Z0-9]+[.A-Za-z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+[.a-zA-Z]*$"; //Pattern for Capital letter followed by small letters, min length 3
-            Regex regex = new Regex(pattern);
+            string emailPattern = @"^[a-zA-Z0-9]+[.A-Za-z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+[.a-zA-Z]*$"; //Pattern for Capital letter followed by small letters, min length 3
+            Regex regex = new Regex(emailPattern);
             if (regex.IsMatch(email))
             {
                 return true;
@@ -83,8 +72,8 @@ namespace _08_UserRegistrationProblem
 
         static bool IsValidMobileNumber(string mobileNumber)
         {
-            string pattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
-            Regex regex = new Regex(pattern);
+            string mobileNumberPattern = @"^[1-9][0-9][ ][1-9][0-9]{9}$"; 
+            Regex regex = new Regex(mobileNumberPattern);
             if (regex.IsMatch(mobileNumber))
             {
                 return true;
@@ -97,8 +86,8 @@ namespace _08_UserRegistrationProblem
             // ?= is used for assertion, we want minimum one Capital letter and one small letter
             // .*[A-Z] means there must be one Capital letter in front of which there can be any number of characters
             // . stand for any character and * stand for 0 or more occurence
-            string pattern = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-b])[a-zA-Z0-9]{8,20}$";
-            Regex regex = new Regex(pattern);
+            string passwordPattern = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=.*[@#$%_])(?!.*[@#$%_].*[@#$%_]).{8,20}$";
+            Regex regex = new Regex(passwordPattern);
             if (regex.IsMatch(password))
             {
                 return true;
