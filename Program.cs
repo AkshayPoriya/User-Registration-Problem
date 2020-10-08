@@ -11,7 +11,8 @@ namespace _08_UserRegistrationProblem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("1. Validate First Name \n2. Validate Last Name\n3. Validate Email \n4. Validate Mobile Number \n5. Validate Password \n6. Exit");
+                Console.WriteLine("1. Validate First Name \n2. Validate Last Name\n3. Validate Email " +
+                                    "\n4. Validate Mobile Number \n5. Validate Password \n6. Exit");
                 string option = Console.ReadLine();
                 switch (option)
                 {
@@ -61,7 +62,7 @@ namespace _08_UserRegistrationProblem
 
         static bool IsValidEmail(string email)
         {
-            string emailPattern = @"^[a-zA-Z0-9]+[.A-Za-z0-9]*[@][a-zA-Z]+[.][a-zA-Z]+[.a-zA-Z]*$"; //Pattern for Capital letter followed by small letters, min length 3
+            string emailPattern = @"^[a-zA-Z0-9]+([.+-]{1}[A-Za-z0-9]+)*[@][a-zA-Z0-9]+([.]{1}([a-zA-Z]{2}|[a-zA-Z]{3,})){0,2}$";
             Regex regex = new Regex(emailPattern);
             if (regex.IsMatch(email))
             {
