@@ -15,7 +15,7 @@ namespace UserRegistration
             {
                 return true;
             }
-            return false;
+            throw new UserEntriesException(UserEntriesException.ExceptionType.NAME,"Enter Valid Name!");
         }
 
         public static bool IsValidEmail(string email)
@@ -26,7 +26,7 @@ namespace UserRegistration
             {
                 return true;
             }
-            return false;
+            throw new UserEntriesException(UserEntriesException.ExceptionType.EMAIL, "Enter Valid Email!");
         }
 
         public static bool IsValidMobileNumber(string mobileNumber)
@@ -37,7 +37,7 @@ namespace UserRegistration
             {
                 return true;
             }
-            return false;
+            throw new UserEntriesException(UserEntriesException.ExceptionType.MOBILE_NUMBER, "Enter Valid Mobile Number!");
         }
 
         public static bool IsValidPassword(string password)
@@ -51,7 +51,7 @@ namespace UserRegistration
             {
                 return true;
             }
-            return false;
+            throw new UserEntriesException(UserEntriesException.ExceptionType.PASSWORD, "Enter Valid Password!");
         }
     }
 }

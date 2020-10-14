@@ -22,27 +22,62 @@ namespace UserRegistration
                     case "1":
                         Console.WriteLine("Enter First Name");
                         string firstName = Console.ReadLine();
-                        Console.WriteLine("{0}", UserEntries.IsValidName(firstName) ? "Valid" : "Invalid"); // Ternary operator
+                        try
+                        {
+                            Console.WriteLine("{0}", UserEntries.IsValidName(firstName) ? "Valid" : "Invalid"); // Ternary operator
+                        }
+                        catch(UserEntriesException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     case "2":
                         Console.WriteLine("Enter Last Name");
                         string lastName = Console.ReadLine();
-                        Console.WriteLine("{0}", UserEntries.IsValidName(lastName) ? "Valid" : "Invalid"); // Ternary operator
+                        try
+                        {
+                            Console.WriteLine("{0}", UserEntries.IsValidName(lastName) ? "Valid" : "Invalid"); // Ternary operator
+                        }
+                        catch (UserEntriesException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     case "3":
                         Console.WriteLine("Enter Email");
                         string email = Console.ReadLine();
-                        Console.WriteLine("{0}", UserEntries.IsValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
+                        try
+                        {
+                            Console.WriteLine("{0}", UserEntries.IsValidEmail(email) ? "Valid" : "Invalid"); // Ternary operator
+                        }
+                        catch (UserEntriesException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     case "4":
                         Console.WriteLine("Enter Mobile Number");
                         string mobileNumber = Console.ReadLine();
-                        Console.WriteLine("{0}", UserEntries.IsValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
+                        try
+                        {
+                            Console.WriteLine("{0}", UserEntries.IsValidMobileNumber(mobileNumber) ? "Valid" : "Invalid"); // Ternary operator
+                        }
+                        catch (UserEntriesException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     case "5":
                         Console.WriteLine("Enter Password");
                         string password = Console.ReadLine();
-                        Console.WriteLine("{0}", UserEntries.IsValidPassword(password) ? "Valid" : "Invalid"); // Ternary operator
+                        try
+                        {
+                            Console.WriteLine("{0}", UserEntries.IsValidPassword(password) ? "Valid" : "Invalid"); // Ternary operator
+                        }
+                        catch (UserEntriesException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     default:
                         flag = false; // To break loop
