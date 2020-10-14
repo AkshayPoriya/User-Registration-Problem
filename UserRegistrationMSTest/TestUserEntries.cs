@@ -15,43 +15,21 @@ namespace UserRegistrationMSTest
         [DataRow("1AksHay",false)]
         public void TestIsValidName(string name, bool expected)
         {
-            //Arrange
-            //Act
-            bool actual = UserEntries.IsValidName(name);
-            //Assert
-            Assert.AreEqual(expected,actual);
-        }
-
-        [TestMethod]
-        [DataRow("91 1234567890", true)]
-        [DataRow("91-0123456789", false)]
-        [DataRow("91 12897456871", false)]
-        [DataRow("67 1000000000", true)]
-        [DataRow("9876543210", false)]
-        [DataRow("123 9874568584", false)]
-        public void TestIsValidMobileNumber(string name, bool expected)
-        {
-            //Arrange
-            //Act
-            bool actual = UserEntries.IsValidMobileNumber(name);
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [DataRow("Arjun@Karn11", true)]
-        [DataRow("Arjun@karan@122", false)]
-        [DataRow("arjun@karan11", false)]
-        [DataRow("arjunKar#11", true)]
-        [DataRow("KaranArjun11", false)]
-        [DataRow("Karan@Arjun", false)]
-        public void TestIsValidPassword(string name, bool expected)
-        {
-            //Arrange
-            //Act
-            bool actual = UserEntries.IsValidPassword(name);
-            //Assert
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                //Arrange
+                //Act
+                bool actual = UserEntries.IsValidName(name);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch (UserEntriesException ex)
+            {
+                string actualMessage = ex.Message;
+                string expectedMessage = "Enter Valid Name!";
+                //Assert
+                Assert.AreEqual(expectedMessage, actualMessage);
+            }
         }
 
         [TestMethod]
@@ -77,13 +55,75 @@ namespace UserRegistrationMSTest
         [DataRow("abc@abc@gmail.com", false)]
         [DataRow("abc@gmail.com.1a", false)]
         [DataRow("abc@gmail.com.aa.au", false)]
-        public void TestIsValidEmail(string name, bool expected)
+        public void TestIsValidEmail(string email, bool expected)
         {
-            //Arrange
-            //Act
-            bool actual = UserEntries.IsValidEmail(name);
-            //Assert
-            Assert.AreEqual(expected, actual);
+            try
+            {
+                //Arrange
+                //Act
+                bool actual = UserEntries.IsValidEmail(email);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch (UserEntriesException ex)
+            {
+                string actualMessage = ex.Message;
+                string expectedMessage = "Enter Valid Email!";
+                //Assert
+                Assert.AreEqual(expectedMessage, actualMessage);
+            }
+        }
+
+        [TestMethod]
+        [DataRow("91 1234567890", true)]
+        [DataRow("91-0123456789", false)]
+        [DataRow("91 12897456871", false)]
+        [DataRow("67 1000000000", true)]
+        [DataRow("9876543210", false)]
+        [DataRow("123 9874568584", false)]
+        public void TestIsValidMobileNumber(string mobileNumber, bool expected)
+        {
+            try
+            {
+                //Arrange
+                //Act
+                bool actual = UserEntries.IsValidMobileNumber(mobileNumber);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch (UserEntriesException ex)
+            {
+                string actualMessage = ex.Message;
+                string expectedMessage = "Enter Valid Mobile Number!";
+                //Assert
+                Assert.AreEqual(expectedMessage, actualMessage);
+            }
+        }
+
+        [TestMethod]
+        [DataRow("Arjun@Karn11", true)]
+        [DataRow("Arjun@karan@122", false)]
+        [DataRow("arjun@karan11", false)]
+        [DataRow("arjunKar#11", true)]
+        [DataRow("KaranArjun11", false)]
+        [DataRow("Karan@Arjun", false)]
+        public void TestIsValidPassword(string password, bool expected)
+        {
+            try
+            {
+                //Arrange
+                //Act
+                bool actual = UserEntries.IsValidPassword(password);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch (UserEntriesException ex)
+            {
+                string actualMessage = ex.Message;
+                string expectedMessage = "Enter Valid Password!";
+                //Assert
+                Assert.AreEqual(expectedMessage, actualMessage);
+            }
         }
     }
 }
